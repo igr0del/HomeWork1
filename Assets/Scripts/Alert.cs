@@ -4,44 +4,37 @@ using UnityEngine;
 
 public class Alert : MonoBehaviour
 {
-    [SerializeField] private AudioSource _alarmSound;
-    [SerializeField] private float _duration;
+    [SerializeField] private AudioSource _audioSource;
 
-    private float _startVolume = 0;
-    private float _targetStayVolume = 1;
-    private float _workingTime = 0;
-    private float _valumeScale;
+    private Coroutine _activeCoroutine;
+    private float _valumeScale = 0.5f;
+    private float _targetValue;
+
+    public void PlaySound()
+    {
+        _targetValue = 1f;
+        _audioSource.Play();
+        _activeCoroutine = StartCoroutine(ChangeVolume());
+    }
+
+    public void StopSound()
+    {
+        _targetValue = 0f;
+        StopCoroutine(_activeCoroutine);
+        _activeCoroutine = StartCoroutine(ChangeVolume());
+    }
 
     private void Start()
     {
-        _alarmSound.volume = _startVolume;
+        _audioSource.volume = 0;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private IEnumerator ChangeVolume()
     {
-        _alarmSound.Play();
-        Debug.Log(_alarmSound.volume);
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {        
-        _workingTime += Time.deltaTime;
-        _valumeScale = _workingTime / _duration;
-        _alarmSound.volume = Mathf.MoveTowards(_alarmSound.volume, _targetStayVolume, _valumeScale);
-        Debug.Log(_alarmSound.volume);
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        _workingTime = 0;
-
-        while (_alarmSound.volume > 0)
+        while (_audioSource.volume != _targetValue)
         {
-            _workingTime += Time.deltaTime;
-            _valumeScale = _workingTime / _duration;
-            _alarmSound.volume = Mathf.MoveTowards(_alarmSound.volume, _startVolume, _valumeScale);
-            Debug.Log(_alarmSound.volume);
+            _audioSource.volume = Mathf.MoveTowards(_audioSource.volume, _targetValue, _valumeScale * Time.deltaTime);
+            yield return null;
         }
-        _alarmSound.Stop();
     }
 }

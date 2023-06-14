@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\Alert.cs" />
     <Compile Include="Assets\Scripts\MoveThief.cs" />
     <Compile Include="Assets\Scripts\Thief.cs" />
+    <Compile Include="Assets\Scripts\House.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

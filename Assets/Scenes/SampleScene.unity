@@ -189,11 +189,69 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5744157392464523346, guid: ead67498fd3699f41b5bacc8dbc57f12, type: 3}
   m_PrefabInstance: {fileID: 779294094}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &87647620 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6640066778392346476, guid: 3e51ff479ace9d440b503dbf0fb93943, type: 3}
+  m_PrefabInstance: {fileID: 682860333}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &87908316 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1101350054102501750, guid: 3e51ff479ace9d440b503dbf0fb93943, type: 3}
   m_PrefabInstance: {fileID: 682860333}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &87908317 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -2703846598403182294, guid: 3e51ff479ace9d440b503dbf0fb93943, type: 3}
+  m_PrefabInstance: {fileID: 682860333}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87647620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccbb1538ef22a7f4a865bfaa29851029, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &87908320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87647620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7dde4e5e7199564cb7af90b23efbc3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movementEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 87908317}
+        m_TargetAssemblyTypeName: Alert, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _movementExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 87908317}
+        m_TargetAssemblyTypeName: Alert, Assembly-CSharp
+        m_MethodName: StopSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &179314701 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5744157392464523346, guid: ead67498fd3699f41b5bacc8dbc57f12, type: 3}
@@ -439,6 +497,10 @@ PrefabInstance:
       propertyPath: _alarmSound
       value: 
       objectReference: {fileID: 1179726519}
+    - target: {fileID: -2703846598403182294, guid: 3e51ff479ace9d440b503dbf0fb93943, type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 1179726519}
     - target: {fileID: 1101350054102501750, guid: 3e51ff479ace9d440b503dbf0fb93943, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -497,7 +559,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1101350054102501750, guid: 3e51ff479ace9d440b503dbf0fb93943, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1179726520}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6640066778392346476, guid: 3e51ff479ace9d440b503dbf0fb93943, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 87908320}
   m_SourcePrefab: {fileID: 100100000, guid: 3e51ff479ace9d440b503dbf0fb93943, type: 3}
 --- !u!1001 &779294094
 PrefabInstance:
@@ -966,7 +1031,7 @@ PrefabInstance:
       objectReference: {fileID: 1903270128}
     - target: {fileID: 827646007365415451, guid: e9b39d57429f0a0419cfb353ba9e63ea, type: 3}
       propertyPath: _speed
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2497258872461483460, guid: e9b39d57429f0a0419cfb353ba9e63ea, type: 3}
       propertyPath: m_Name
